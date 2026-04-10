@@ -1,117 +1,80 @@
 # Chirpier Skills
 
-A collection of skills for AI coding agents following the Agent Skills format. These skills help OpenClaw and other agents work with Chirpier as a flat log, event, policy, alerting, and destination backend.
+Self-contained Agent Skills for working with Chirpier.
 
-## Available Skills
+`chirpier/docs` is the canonical public contract. `chirpier-skills` is the operational execution layer optimized for agents. If the two ever diverge, follow `docs`.
 
-### `chirpier`
+These skills are optimized for OpenClaw-style agent workflows. They are not a replacement for the full Chirpier API docs. Use them as operational decision support for agents, with a few concrete API and SDK examples for the most common first actions.
 
-Unified skill for sending flat Chirpier events, reading event definitions, creating policies, querying rollups, inspecting alerts, and testing destinations. This is the default skill most agents should use first.
+The core `chirpier` skill now includes ready-to-run examples for JavaScript, Python, and Go, plus HTTP fallbacks when shell automation is a better fit.
 
-Reference files:
-- `references/event-taxonomy.md` - Canonical event naming grammar, event logging shape guidance, and analytics window conventions
-- `references/monitor-patterns.md` - Recommended policy recipes by event type
-- `references/gotchas.md` - Flat-model rules, common mistakes, and debugging notes
-- `references/testing-checklists.md` - OpenClaw integration and rollout checklist
-- `references/operator-prompts.md` - Guided and natural-mode prompts for OpenClaw
-- `references/failure-recovery.md` - How to recover from invalid policies, bad configs, and delivery failures
-
-### `chirpier-monitoring`
-
-Focused skill for turning observed behavior into Chirpier logging and policies. Best for market monitoring, workflow monitoring, tool failures, latency tracking, and sentiment monitoring.
-
-Reference files:
-- `playbooks/bitcoin-price-monitor.md`
-- `playbooks/bitcoin-reddit-sentiment.md`
-- `playbooks/tool-error-rate.md`
-- `playbooks/task-latency.md`
-
-### `chirpier-destinations`
-
-Skill for setting up, validating, and testing outbound destinations including webhook, Slack, Discord, Telegram, and email.
-
-Reference files:
-- `references/destinations.md`
-- `references/delivery-history.md`
-
-### `chirpier-alert-triage`
-
-Skill for reading active alerts, inspecting deliveries, acknowledging, resolving, archiving, and validating whether alert behavior matches expected logging values.
-
-Reference files:
-- `references/delivery-history.md`
-- `references/testing-checklists.md`
-
-## Installation
+## Install
 
 ```bash
-# Install all skills
 npx skills @chirpier/chirpier-skills
-
-# Install individual skills
-npx skills @chirpier/chirpier-skills/chirpier
-npx skills @chirpier/chirpier-skills/chirpier-monitoring
-npx skills @chirpier/chirpier-skills/chirpier-destinations
-npx skills @chirpier/chirpier-skills/chirpier-alert-triage
 ```
 
-## Usage
+## Skills
 
-Skills should activate when an agent is asked to do tasks like:
+| Skill | Purpose |
+| --- | --- |
+| `chirpier` | Core Chirpier contract for event identity, instrumentation, rollups, analytics windows, policies, and guided validation |
+| `chirpier-monitoring` | Workload playbooks for recurring comparisons, charts, public dashboard pages, and policies |
+| `chirpier-destinations` | Destination setup, provider-specific validation, and delivery-history checks after tests |
+| `chirpier-alert-triage` | Investigation and lifecycle handling for existing alerts |
 
-- "Send OpenClaw task duration and error events to Chirpier"
-- "Create a policy for OpenClaw tool failures in the last hour"
-- "Show me Bitcoin price rollups for the last 24 hours"
-- "Analyze Reddit sentiment about Bitcoin and alert if sentiment drops"
-- "Set up a Slack destination for Chirpier alerts"
-- "Test my Telegram destination and inspect delivery history"
+## Design Rules
 
-## Embed Guidance
+- treat the unique event definition identity as `agent + event`
+- keep each skill self-contained under its own `references/`, `assets/`, and optional `scripts/`
+- prefer the selected skill's local instructions and resources first; fall back to repo-level guidance only when needed
+- use backend rollup and policy periods `minute`, `hour`, `day`
+- use analytics window periods `1h`, `1d`, `7d`, `1m`
+- use `destination` as the resource name and `webhook` only as a provider type
+- use `public dashboard page` consistently for the hosted human-facing trend surface
+- use the default delivery history view for real alerts, `kind=test` after destination tests, and `kind=all` only for debugging
 
-- prefer bare `<ChirpierChart />` usage in examples and generated code
-- wrap the chart only for host-specific layout like cards, headings, placeholders, or branded empty states
-- prefer a single `CHIRPIER_EMBEDS_JSON` config for multiple embeds instead of many separate env vars
-- keep share-scoped tokens server-side unless they are intentionally public to the browser
+## Recommended Entry Path
 
-## Recommended Testing Modes
+1. Start with `chirpier`.
+2. Follow the guided validation flow for the first OpenClaw integration pass.
+3. Move to `chirpier-monitoring`, `chirpier-destinations`, or `chirpier-alert-triage` only when the task is clearly narrower than the core contract.
 
-### Guided Mode
+## Golden Path
 
-Start here first.
+See `golden-path.md` for one end-to-end flow covering logs, analytics, policies, destinations, delivery inspection, and public dashboard page handoff.
 
-- explicitly tell OpenClaw to use `chirpier-skills`
-- verify canonical event names, valid policy aggregates, analytics window queries, and destination test flows
-- compare behavior against `references/testing-checklists.md`
+For runtime-specific examples, start with the core skill references:
 
-### Natural Mode
+- `skills/chirpier/references/sdk-examples-javascript-and-http.md`
+- `skills/chirpier/references/sdk-examples-python.md`
+- `skills/chirpier/references/sdk-examples-go.md`
 
-Use this after guided mode passes.
+## SDK Choice
 
-- give OpenClaw the same tasks without explicitly naming the skills
-- confirm it still follows the same event grammar, policy rules, and delivery-history behavior
+See `sdk-guidance.md`.
 
-## Supported SDKs
+- prefer `chirpier-js` for OpenClaw by default
+- use `chirpier-py` when the runtime is clearly Python-native
+- use `chirpier-go` when the integrating service is clearly Go-native
+- use raw HTTP as the universal fallback
 
-- Node.js / TypeScript
-- Python
-- Go
-- cURL / raw HTTP
+## Validation
 
-## Prerequisites
+```bash
+node scripts/lint-skill-frontmatter.mjs
+```
 
-- Chirpier/Ingres deployment with `publisher`, `consumer`, and `servicer`
-- Postgres with required migrations applied
-- Redis for token and queue/cache behavior
-- Bearer token stored in `users.token`
+This checks that every `SKILL.md` frontmatter block contains only the AgentSkills-spec keys: `name` and `description`.
 
-## Recommended Starting Path
+## Repo Layout
 
-1. Start with the `chirpier` skill
-2. Read `references/event-taxonomy.md`
-3. Pick a playbook from `playbooks/`
-4. Emit events first, then create policies
-5. Test destinations before relying on real alert delivery
+```text
+skills/
+  chirpier/
+  chirpier-monitoring/
+  chirpier-destinations/
+  chirpier-alert-triage/
+```
 
-## License
-
-MIT
+Each skill package owns its own instructions and supporting files.

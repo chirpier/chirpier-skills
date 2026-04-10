@@ -1,0 +1,9 @@
+{
+  "agent": "openclaw.main",
+  "event": "tool.errors.count",
+  "value": 1,
+  "meta": {
+    "tool_name": "browser.open",
+    "workflow": "triage"
+  }
+}

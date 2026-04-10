@@ -1,0 +1,9 @@
+{
+  "agent": "openclaw.main",
+  "event": "task.duration_ms",
+  "value": 420,
+  "meta": {
+    "task_name": "email_triage",
+    "workflow": "ops"
+  }
+}

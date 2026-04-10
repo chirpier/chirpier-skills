@@ -1,0 +1,9 @@
+{
+  "agent": "openclaw.main",
+  "event": "task.duration_ms",
+  "value": 780,
+  "meta": {
+    "task_name": "daily_digest",
+    "workflow": "ops"
+  }
+}

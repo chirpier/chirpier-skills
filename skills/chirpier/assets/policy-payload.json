@@ -1,0 +1,10 @@
+{
+  "title": "OpenClaw tool errors last hour",
+  "event": "tool.errors.count",
+  "agent": "openclaw.main",
+  "aggregate": "sum",
+  "period": "hour",
+  "operator": "gt",
+  "threshold": 5,
+  "channel": "ops"
+}
