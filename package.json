@@ -1,0 +1,35 @@
+{
+  "name": "@chirpier/chirpier-skills",
+  "version": "1.0.0",
+  "description": "Agent Skills for working with Chirpier — event identity, instrumentation, policies, monitoring, destinations, and alert triage",
+  "keywords": [
+    "chirpier",
+    "agent-skills",
+    "monitoring",
+    "observability",
+    "alerting",
+    "analytics",
+    "openclaw",
+    "mcp",
+    "ai-agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chirpier/chirpier-skills.git"
+  },
+  "license": "MIT",
+  "files": [
+    "skills/",
+    "scripts/",
+    "evals/",
+    "golden-path.md",
+    "sdk-guidance.md",
+    "marketplace.json",
+    "AGENTS.md",
+    "README.md"
+  ],
+  "scripts": {
+    "validate": "node scripts/validate-all.mjs",
+    "lint": "node scripts/lint-skill-frontmatter.mjs"
+  }
+}

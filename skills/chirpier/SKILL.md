@@ -24,6 +24,9 @@ description: Use for Chirpier contract setup, event naming, instrumentation, rol
 - `node scripts/validate-event-name.mjs tool.errors.count`
 - `node scripts/validate-period.mjs rollup hour`
 - `node scripts/validate-period.mjs analytics 1h`
+- `references/error-codes.md`
+- `references/troubleshooting.md`
+- `references/api-limits.md`
 
 ## Skill Selection
 
@@ -61,6 +64,9 @@ description: Use for Chirpier contract setup, event naming, instrumentation, rol
 16. If the user asks for a ready-to-run example, use `references/sdk-examples-javascript-and-http.md` for JavaScript or HTTP, `references/sdk-examples-python.md` for Python, and `references/sdk-examples-go.md` for Go.
 17. If the user asks for a policy body, copy `assets/policy-payload.json` and adjust only the stream-specific fields.
 18. If any step fails because of naming drift, invalid periods, or aggregate mismatch, read `references/failure-recovery.md` and correct the request before retrying.
+19. If an API request returns an HTTP error, read `references/error-codes.md` for recovery steps.
+20. If an operation succeeds but the expected outcome does not appear, read `references/troubleshooting.md`.
+21. If planning a high-volume integration, read `references/api-limits.md` for batching and rate limit guidance.
 
 ## Success Checks
 

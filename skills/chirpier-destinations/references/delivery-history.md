@@ -1,5 +1,7 @@
 # Delivery History
 
+<!-- Note: a triage-focused version of this file also exists at chirpier-alert-triage/references/delivery-history.md. Keep shared sections in sync. -->
+
 Use this file for the local delivery-history contract.
 
 ## Default View

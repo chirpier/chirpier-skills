@@ -1,0 +1,92 @@
+[
+  {
+    "prompt": "I want to start sending tool error counts to Chirpier from my OpenClaw agent",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "First-pass instrumentation and event naming"
+  },
+  {
+    "prompt": "Help me create a policy that alerts when task duration exceeds 2 seconds",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Policy creation with aggregate selection"
+  },
+  {
+    "prompt": "What should I name my event for tracking token usage?",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Event naming and identity model"
+  },
+  {
+    "prompt": "I need to compare this hour's error count with the previous hour",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Analytics window query"
+  },
+  {
+    "prompt": "Show me how to send my first log to Chirpier using the JavaScript SDK",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "First integration with SDK examples"
+  },
+  {
+    "prompt": "I sent some logs but the event definition hasn't appeared yet",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Guided validation and failure recovery"
+  },
+  {
+    "prompt": "What aggregate should I use for a latency metric?",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Aggregate selection from stream shape"
+  },
+  {
+    "prompt": "Help me emit heartbeat events from my Go service",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "First-pass instrumentation with Go SDK"
+  },
+  {
+    "prompt": "Can I use 1h as the rollup period for my policy?",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "Period validation — common mistake"
+  },
+  {
+    "prompt": "I need to set up a Python script that logs events to Chirpier",
+    "expected_skill": "chirpier",
+    "should_trigger": true,
+    "reason": "First integration with Python SDK"
+  },
+  {
+    "prompt": "Set up a Slack webhook for my Chirpier alerts",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": false,
+    "reason": "Destination-only task routes to chirpier-destinations"
+  },
+  {
+    "prompt": "Why did my alert fire at 3am last night?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": false,
+    "reason": "Existing alert investigation routes to chirpier-alert-triage"
+  },
+  {
+    "prompt": "I want to build a monitoring dashboard for my agent's tool errors",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": false,
+    "reason": "Dashboard and trend playbook routes to chirpier-monitoring"
+  },
+  {
+    "prompt": "What is the weather in Tokyo?",
+    "expected_skill": null,
+    "should_trigger": false,
+    "reason": "Completely unrelated prompt — no Chirpier skill should trigger"
+  },
+  {
+    "prompt": "Help me set up a Next.js project",
+    "expected_skill": null,
+    "should_trigger": false,
+    "reason": "Unrelated development task — no Chirpier skill should trigger"
+  }
+]

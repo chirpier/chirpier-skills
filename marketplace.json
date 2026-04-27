@@ -1,0 +1,28 @@
+{
+  "skills": [
+    {
+      "name": "chirpier",
+      "description": "Core Chirpier contract for event identity, instrumentation, rollups, analytics windows, policies, and guided validation",
+      "tags": ["monitoring", "observability", "events", "analytics", "policies", "instrumentation"],
+      "entry": "skills/chirpier/SKILL.md"
+    },
+    {
+      "name": "chirpier-monitoring",
+      "description": "Workload playbooks for recurring comparisons, dashboards, public dashboard pages, and trend monitoring",
+      "tags": ["monitoring", "dashboards", "playbooks", "analytics", "trends"],
+      "entry": "skills/chirpier-monitoring/SKILL.md"
+    },
+    {
+      "name": "chirpier-destinations",
+      "description": "Destination setup and testing for Slack, Discord, Telegram, email, and webhook alert delivery",
+      "tags": ["alerting", "slack", "discord", "telegram", "email", "webhooks", "notifications"],
+      "entry": "skills/chirpier-destinations/SKILL.md"
+    },
+    {
+      "name": "chirpier-alert-triage",
+      "description": "Investigation, acknowledgement, resolution, and archiving of existing Chirpier alerts",
+      "tags": ["alerting", "triage", "incidents", "investigation", "on-call"],
+      "entry": "skills/chirpier-alert-triage/SKILL.md"
+    }
+  ]
+}

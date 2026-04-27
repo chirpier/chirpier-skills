@@ -1,6 +1,6 @@
 ---
 name: chirpier-monitoring
-description: Use for Chirpier workload playbooks, recurring comparisons, dashboards, and public dashboard page handoff after the core contract is already understood. OpenClaw is the primary trigger context, especially for tool errors, latency, token usage, liveness, market monitoring, and sentiment workflows. Use this skill when the user wants trend visibility or repeated monitoring workflows. Do not use for first-pass instrumentation, destination-only work, or existing-alert-only investigation.
+description: Use for Chirpier workload playbooks, recurring comparisons, dashboards, charts, and public dashboard page handoff after the core contract is already understood. OpenClaw is the primary trigger context, especially for tool errors, latency, token usage, liveness, market price monitoring, and sentiment analysis workflows. Use this skill when the user wants trend visibility, periodic analytics, or repeated monitoring workflows. Do not use for first-pass instrumentation, destination-only work, or existing-alert-only investigation.
 ---
 
 # Chirpier Monitoring

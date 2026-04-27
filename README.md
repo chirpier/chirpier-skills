@@ -6,6 +6,10 @@ Self-contained Agent Skills for working with Chirpier.
 
 These skills are optimized for OpenClaw-style agent workflows. They are not a replacement for the full Chirpier API docs. Use them as operational decision support for agents, with a few concrete API and SDK examples for the most common first actions.
 
+## Compatibility
+
+These skills follow the open [AgentSkills spec](https://agentskills.io) and work with any compliant agent platform including Claude Code, OpenClaw, Codex, Cursor, Gemini CLI, and others.
+
 The core `chirpier` skill now includes ready-to-run examples for JavaScript, Python, and Go, plus HTTP fallbacks when shell automation is a better fit.
 
 ## Install

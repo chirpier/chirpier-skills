@@ -76,6 +76,88 @@ await client.shutdown();
 - `chirpier-go` when the integrating service is Go-native
 - raw HTTP when you need the universal fallback or the SDK does not fit the runtime you are modifying
 
+## Expected Response Shapes
+
+These are the response shapes agents need for chaining operations.
+
+### Log write
+
+```json
+{ "status": "ok" }
+```
+
+### List events
+
+```json
+[
+  {
+    "event_id": "evt_abc123",
+    "agent": "openclaw.main",
+    "event": "tool.errors.count",
+    "created_at": "2026-04-25T10:00:00Z"
+  }
+]
+```
+
+### Analytics
+
+```json
+{
+  "event_id": "evt_abc123",
+  "period": "1h",
+  "current": { "sum": 12, "count": 8, "average": 1.5 },
+  "previous": { "sum": 3, "count": 3, "average": 1.0 }
+}
+```
+
+### Policy creation
+
+```json
+{
+  "policy_id": "pol_xyz789",
+  "event_id": "evt_abc123",
+  "title": "OpenClaw tool errors last hour",
+  "period": "hour",
+  "aggregate": "sum",
+  "condition": "gt",
+  "threshold": 5,
+  "enabled": true
+}
+```
+
+### Destination creation
+
+```json
+{
+  "destination_id": "dst_def456",
+  "channel": "slack",
+  "enabled": true
+}
+```
+
+### Destination test
+
+```json
+{
+  "alert_id": "alt_ghi012"
+}
+```
+
+### Delivery history
+
+```json
+[
+  {
+    "delivery_id": "dlv_jkl345",
+    "alert_id": "alt_ghi012",
+    "destination_id": "dst_def456",
+    "kind": "test",
+    "status": "delivered",
+    "provider_response": "ok"
+  }
+]
+```
+
 ## Send Logs
 
 ```bash

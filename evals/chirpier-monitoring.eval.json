@@ -1,0 +1,74 @@
+[
+  {
+    "prompt": "I want to set up a monitoring dashboard for my OpenClaw agent's tool errors and latency",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Dashboard creation for known workload patterns"
+  },
+  {
+    "prompt": "Show me a playbook for monitoring Bitcoin price on Chirpier",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Market monitoring playbook"
+  },
+  {
+    "prompt": "I want to compare today's token usage with yesterday's",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Recurring analytics comparison"
+  },
+  {
+    "prompt": "How do I set up a public dashboard page so my team can see error trends?",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Public dashboard page handoff"
+  },
+  {
+    "prompt": "What monitoring streams should I set up for a new OpenClaw agent?",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Workload playbook selection"
+  },
+  {
+    "prompt": "I want to track Reddit sentiment for Bitcoin using Chirpier",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Sentiment monitoring playbook"
+  },
+  {
+    "prompt": "Build me charts showing p95 latency and error rates over the last week",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Dashboard patterns with multiple trends"
+  },
+  {
+    "prompt": "Compare tool error rates this hour versus same hour yesterday",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": true,
+    "reason": "Recurring analytics comparison pattern"
+  },
+  {
+    "prompt": "I want to set up my first Chirpier event and policy",
+    "expected_skill": "chirpier",
+    "should_trigger": false,
+    "reason": "First-pass instrumentation routes to core chirpier skill"
+  },
+  {
+    "prompt": "My alert fired but the Slack notification didn't come through",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": false,
+    "reason": "Existing alert investigation routes to chirpier-alert-triage"
+  },
+  {
+    "prompt": "Help me configure a Discord destination for my alerts",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": false,
+    "reason": "Destination-only task routes to chirpier-destinations"
+  },
+  {
+    "prompt": "What's the best database for my project?",
+    "expected_skill": null,
+    "should_trigger": false,
+    "reason": "Unrelated prompt — no Chirpier skill should trigger"
+  }
+]

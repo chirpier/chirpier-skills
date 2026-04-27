@@ -1,0 +1,74 @@
+[
+  {
+    "prompt": "I need to set up a Slack destination for my Chirpier alerts",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination creation with Slack provider"
+  },
+  {
+    "prompt": "How do I configure a Discord webhook for Chirpier notifications?",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination creation with Discord provider"
+  },
+  {
+    "prompt": "I created a destination but want to test if it actually delivers",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination testing flow"
+  },
+  {
+    "prompt": "How do I send Chirpier alerts to a Telegram channel?",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination creation with Telegram provider"
+  },
+  {
+    "prompt": "I need to check if my destination test was delivered successfully",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Test-delivery inspection with kind=test"
+  },
+  {
+    "prompt": "Set up email alerts for my Chirpier policies",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination creation with email provider"
+  },
+  {
+    "prompt": "Add a custom webhook endpoint to receive Chirpier alert payloads",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Destination creation with webhook provider"
+  },
+  {
+    "prompt": "My destination test came back but I want to verify the delivery record",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": true,
+    "reason": "Delivery history inspection after test"
+  },
+  {
+    "prompt": "I want to name my events and create my first policy",
+    "expected_skill": "chirpier",
+    "should_trigger": false,
+    "reason": "First-pass instrumentation routes to core chirpier skill"
+  },
+  {
+    "prompt": "My alert fired but the notification didn't arrive — what happened?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": false,
+    "reason": "Existing alert investigation routes to chirpier-alert-triage"
+  },
+  {
+    "prompt": "Show me a monitoring playbook for tracking task latency",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": false,
+    "reason": "Workload monitoring playbook routes to chirpier-monitoring"
+  },
+  {
+    "prompt": "How do I deploy a React app?",
+    "expected_skill": null,
+    "should_trigger": false,
+    "reason": "Unrelated prompt — no Chirpier skill should trigger"
+  }
+]

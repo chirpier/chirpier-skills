@@ -1,6 +1,6 @@
 ---
 name: chirpier-alert-triage
-description: Use for investigation, acknowledgement, resolution, archiving, and explanation of existing Chirpier alerts. OpenClaw is the primary trigger context, especially for tool-error, latency, token-usage, and heartbeat alerts. Use this skill only when an alert already exists and the task is to investigate alert behavior, delivery, or lifecycle state. Do not use for destination setup, first-pass instrumentation, or policy creation without an existing alert.
+description: Use for investigation, acknowledgement, resolution, archiving, and explanation of existing Chirpier alerts. Covers incident response, on-call triage, alert lifecycle management, and delivery debugging. OpenClaw is the primary trigger context, especially for tool-error, latency, token-usage, and heartbeat alerts. Use this skill only when an alert already exists and the task is to investigate alert behavior, delivery, or lifecycle state. Do not use for destination setup, first-pass instrumentation, or policy creation without an existing alert.
 ---
 
 # Chirpier Alert Triage

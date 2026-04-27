@@ -1,0 +1,80 @@
+[
+  {
+    "prompt": "I got an alert about tool errors — can you help me investigate?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Existing alert investigation"
+  },
+  {
+    "prompt": "Why did my latency alert fire at 3am?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert investigation with specific timing"
+  },
+  {
+    "prompt": "I need to acknowledge this Chirpier alert and assign it to the on-call",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert lifecycle state change — acknowledge"
+  },
+  {
+    "prompt": "This alert has been resolved — how do I close it in Chirpier?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert lifecycle state change — resolve"
+  },
+  {
+    "prompt": "The heartbeat missed alert keeps firing but the agent is running — what's wrong?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert investigation with false positive suspicion"
+  },
+  {
+    "prompt": "My alert says token usage spiked but I need to check the rollups first",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Triage loop — inspect rollups before action"
+  },
+  {
+    "prompt": "An alert triggered but the Slack notification never arrived — is it a delivery issue?",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert triage including delivery inspection"
+  },
+  {
+    "prompt": "I want to archive old alerts that are no longer relevant",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "Alert lifecycle state change — archive"
+  },
+  {
+    "prompt": "Explain what caused this tool error alert on my OpenClaw agent",
+    "expected_skill": "chirpier-alert-triage",
+    "should_trigger": true,
+    "reason": "OpenClaw-specific triage questions"
+  },
+  {
+    "prompt": "I want to send my first events to Chirpier",
+    "expected_skill": "chirpier",
+    "should_trigger": false,
+    "reason": "First-pass instrumentation routes to core chirpier skill"
+  },
+  {
+    "prompt": "Set up a Discord destination for alert notifications",
+    "expected_skill": "chirpier-destinations",
+    "should_trigger": false,
+    "reason": "Destination-only task routes to chirpier-destinations"
+  },
+  {
+    "prompt": "I need a dashboard showing error trends over the last week",
+    "expected_skill": "chirpier-monitoring",
+    "should_trigger": false,
+    "reason": "Dashboard/trend work routes to chirpier-monitoring"
+  },
+  {
+    "prompt": "Write me a Python script to parse CSV files",
+    "expected_skill": null,
+    "should_trigger": false,
+    "reason": "Unrelated prompt — no Chirpier skill should trigger"
+  }
+]

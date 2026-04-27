@@ -1,6 +1,6 @@
 ---
 name: chirpier-destinations
-description: Use for Chirpier destination setup, provider-specific validation, destination testing, and test-delivery inspection. OpenClaw is the primary trigger context, especially when routing alerts to Slack, Discord, Telegram, email, or webhook destinations. Use this skill when the task is destination-only or destination-test-focused. Do not use for first-pass instrumentation or for investigating an already-triggered alert when no destination change is needed.
+description: Use for Chirpier destination setup, provider-specific validation, destination testing, and test-delivery inspection. Covers Slack webhooks, Discord webhooks, Telegram bots, email notifications, and custom webhook endpoints. OpenClaw is the primary trigger context, especially when routing alerts to notification channels. Use this skill when the task is destination-only or destination-test-focused. Do not use for first-pass instrumentation or for investigating an already-triggered alert when no destination change is needed.
 ---
 
 # Chirpier Destinations
